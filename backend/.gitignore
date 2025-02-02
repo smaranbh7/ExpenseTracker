@@ -1,0 +1,32 @@
+# Node.js modules
+node_modules/
+
+# Build/dist folders
+build/
+dist/
+public/build/ # if you have your React build in public
+
+# IDE Specific files
+.idea/
+.vscode/
+*.sublime-project
+*.sublime-workspace
+
+# Env files and local secrets
+.env
+*.env
+
+# Log files
+*.log
+
+# OS generated files
+.DS_Store
+Thumbs.db
+
+# Packages lock files (Optional - if you use npm AND yarn together)
+npm-debug.log*
+yarn-error.log*
+
+# Temporary files
+*~
+*.swp
