@@ -7,7 +7,7 @@ const router= express.Router()
 //get all expenses
 router.get('/')
 
-//post a single expense
+//post a  expense
 router.post('/')
 
 //delete a expense
