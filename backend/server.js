@@ -1,6 +1,6 @@
 const express = require('express');
 require('dotenv').config()
-const addExpenseRoutes=require('./routes/addExpense')
+const addExpenseRoutes=require('../backend/routes/addExpense')
 const mongoose = require('mongoose')
 
 //express app
@@ -10,8 +10,9 @@ const app = express();
 app.use(express.json())
 
 //middleware to console  http's request path and method
-app.use((req,res,next)=>{
-    console.log(req.path, req.method)
+app.use((req, res, next)=>{
+    console.log(req.path, req.method);
+    
 })
 
 //routes

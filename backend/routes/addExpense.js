@@ -1,19 +1,27 @@
 //imports
 const express = require('express')
 
+const {
+    createExpense,
+    getExpenses,
+    getExpense,
+    deleteExpense,
+    updateExpense
+} = require('../controllers/addExpenses.controllers')
+
 //router import
 const router= express.Router()
 
 //get all expenses
-router.get('/')
+router.get('/',getExpenses)
 
-//post a  expense
-router.post('/')
+//post a expense
+router.post('/', createExpense)
 
 //delete a expense
-router.delete('/:id')
+router.delete('/:id', deleteExpense)
 
 // update a expense
-router.patch('/')
+router.patch('/', updateExpense)
 
-module.express=router
+module.exports=router
