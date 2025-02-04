@@ -1,6 +1,6 @@
 const express = require('express');
 require('dotenv').config()
-const addExpenseRoutes=require('../backend/routes/addExpense')
+const expenseRoutes=require('../backend/routes/addExpense')
 const mongoose = require('mongoose')
 
 //express app
@@ -12,11 +12,12 @@ app.use(express.json())
 //middleware to console  http's request path and method
 app.use((req, res, next)=>{
     console.log(req.path, req.method);
+    next();
     
 })
 
 //routes
-app.use('/api/addExpense',addExpenseRoutes)
+app.use('/api/expense',expenseRoutes)
 
 //connect to db and listen to requuest
 mongoose.connect(process.env.MONGO_URI)

@@ -11,11 +11,17 @@ const expenseSchema= new Schema({
     },
     amount: {
         type: Number,
-        required: true
+        required: true,
+        min: 0
     },
     month: {
         type: String,
-        required: true
+        required: true,
+        enum: [
+            "January", "February", "March", "April", "May", "June",
+            "July", "August", "September", "October", "November", "December"
+        ]
+    
     }
 }, {timestamps:true})
 

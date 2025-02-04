@@ -22,6 +22,6 @@ router.post('/', createExpense)
 router.delete('/:id', deleteExpense)
 
 // update a expense
-router.patch('/', updateExpense)
+router.patch('/:id', updateExpense)
 
 module.exports=router
