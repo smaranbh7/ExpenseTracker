@@ -15,6 +15,9 @@ const router= express.Router()
 //get all expenses
 router.get('/',getExpenses)
 
+//get a expense
+router.get('/:id',getExpense)
+
 //post a expense
 router.post('/', createExpense)
 
