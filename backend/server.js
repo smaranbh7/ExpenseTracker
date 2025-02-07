@@ -17,7 +17,7 @@ app.use((req, res, next)=>{
 })
 
 //routes
-app.use('/api/expense',expenseRoutes)
+app.use('/api/expenses',expenseRoutes)
 
 //connect to db and listen to requuest
 mongoose.connect(process.env.MONGO_URI)
