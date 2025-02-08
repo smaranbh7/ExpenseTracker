@@ -3,6 +3,7 @@ import { useEffect, useState } from "react"
 //components
 
 import ExpenseDetails from '../components/expenseDetails'
+import ExpenseForm from '../components/ExpenseForm'
 
 const Home = () => {
     const [expenses, setExpenses]= useState(null)
@@ -26,6 +27,7 @@ const Home = () => {
                 <ExpenseDetails key={expense._id} expense={expense}/>
             ))}
            </div>
+           <ExpenseForm />
         </div>
     )
 }
