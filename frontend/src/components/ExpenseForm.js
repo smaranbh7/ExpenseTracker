@@ -1,6 +1,8 @@
 import { useState } from "react"
+import { useExpensesContext } from "../hooks/useExpensesContext";
 
 const ExpenseForm = () => {
+    const { dispatch } = useExpensesContext()
     const [tittle,setTittle]= useState('');
     const [amount,setAmount]= useState('');
     const [month,setMonth]= useState('')
@@ -30,6 +32,7 @@ const ExpenseForm = () => {
             setTittle('')
             setError(null)
             console.log("New expense added", json)
+            dispatch({type: 'CREATE_EXPENSES', payload: json})
         }
     }
 
