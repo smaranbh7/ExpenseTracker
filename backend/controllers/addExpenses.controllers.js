@@ -30,6 +30,21 @@ const getExpense= async(req, res)=>{
 const createExpense= async(req, res) =>{
     const {tittle, amount, month} = req.body
 
+    let emptyFields = []
+
+    if(!tittle) {
+        emptyFields.push('Title')
+    }
+    if(!amount) {
+        emptyFields.push('Amount')
+    }
+    if(!month)  {
+        emptyFields.push('Month')
+    }
+    if(emptyFields.length >0) {
+        return res.status(400).json ({error: 'Please fill in all the fields',emptyFields})
+    }
+
     try{
         const expense= await Expense.create({ tittle, amount, month})
         res.status(200).json(expense)

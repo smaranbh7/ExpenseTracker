@@ -7,6 +7,7 @@ const ExpenseForm = () => {
     const [amount,setAmount]= useState('');
     const [month,setMonth]= useState('')
     const [error,setError]= useState(null)
+    const [emptyFields, setEmptyFields] = useState([])
 
     const handleSubmit = async (e) =>{
         //prevents the page
@@ -25,12 +26,14 @@ const ExpenseForm = () => {
 
         if(!response.ok){
             setError(json.error)
+            setEmptyFields(json.emptyFields)
         }
         if(response.ok){
             setAmount('')
             setMonth('')
             setTittle('')
             setError(null)
+            setEmptyFields([])
             console.log("New expense added", json)
             dispatch({type: 'CREATE_EXPENSES', payload: json})
         }
@@ -45,6 +48,7 @@ const ExpenseForm = () => {
                 type="text"
                 onChange={(e)=>setTittle(e.target.value)}
                 value={tittle}
+                className={emptyFields.includes('title')? 'error' : ''}
             />    
 
             <label>Amount (in USD)</label>
@@ -52,6 +56,7 @@ const ExpenseForm = () => {
                 type="number"
                 onChange={(e)=>setAmount(e.target.value)}
                 value={amount}
+                className={emptyFields.includes('amount')? 'error' : ''}
             />    
 
             <label>For the month</label>
@@ -59,6 +64,7 @@ const ExpenseForm = () => {
                 type="text"
                 onChange={(e)=>setMonth(e.target.value)}
                 value={month}
+                className={emptyFields.includes('month')? 'error' : ''}
             />    
 
             <button>Add Expense</button>

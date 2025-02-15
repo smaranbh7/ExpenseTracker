@@ -185,4 +185,8 @@ div.error {
   .expense-details {
     padding: 15px;
   }
+
+  input.error {
+    border: 1px solid var(--error);
+  }
 }
