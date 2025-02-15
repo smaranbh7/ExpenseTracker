@@ -20,7 +20,7 @@ const Home = () => {
         }
 
         fetchExpense()
-    },[])
+    },[dispatch])
     return(
         <div className="home">
            <div className="workouts">

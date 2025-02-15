@@ -1,5 +1,7 @@
 import { useExpensesContext } from "../hooks/useExpensesContext"
 
+import formatDistanceToNow from 'date-fns/formatDistanceToNow'
+
 const ExpenseDetails = ({ expense }) => {
 
     const { dispatch } = useExpensesContext()
@@ -12,7 +14,7 @@ const ExpenseDetails = ({ expense }) => {
 
         if (response.ok) {
             dispatch({type: 'DELETE_EXPENSE', payload: json})
-
+ 
         }
     }
 
@@ -21,8 +23,8 @@ const ExpenseDetails = ({ expense }) => {
             <h4>{expense.tittle}</h4>
             <p><strong>Amount : </strong>${expense.amount}</p>
             <p><strong>Month : </strong>{expense.month}</p>
-            <p>{expense.createdAt}</p>
-            <span onClick={handleClick}>delete</span>
+            <p>{formatDistanceToNow(new Date(expense.createdAt), { addSuffix: true})}</p>
+            <span className="material-symbols-outlined" onClick={handleClick}>delete</span>
         </div>
     )
 
