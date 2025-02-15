@@ -11,7 +11,12 @@ export const expensesReducer = (state, action) => {
         case 'CREATE_EXPENSES':
             return{
                 expenses : [action.payload, ...state.expenses]
-            }    
+            }
+        case 'DELETE_EXPENSE':
+            return {
+                expenses: state.expenses.filter((e) =>e._id !== action.payload._id)
+            }
+
         default:
             return state    
     }
